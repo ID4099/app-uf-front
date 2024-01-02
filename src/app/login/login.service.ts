@@ -3,11 +3,11 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import * as jwt_decode from "jwt-decode";
+import { environment } from '../../environments/environment.development';
 
 @Injectable()//**default args ** {providedIn: 'root'}
 export class LoginService {
 
-  private serverAppUrl: string = '';
   private isLogged: boolean;
 
   constructor(
@@ -16,12 +16,12 @@ export class LoginService {
     private cookie: CookieService
   ) {
     this.isLogged = false
-    this.serverAppUrl = 'http://localhost:3000'
+
   }
 
   async signin(user: string, password: string): Promise<any>{
     const credentials = { user, password }
-    await this.httpClient.post<any>(`${this.serverAppUrl}/user/signin`, credentials ).subscribe(
+    await this.httpClient.post<any>(`${environment.serverAppUrl}/user/signin`, credentials ).subscribe(
       (response)=>{
         this.cookie.set('token', response.access_token);
         this.cookie.set('isLogged', 'success');

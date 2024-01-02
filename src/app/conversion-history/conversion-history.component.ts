@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment.development';
 
 @Component({
   selector: 'app-conversion-history',
@@ -10,7 +11,6 @@ import { Router } from '@angular/router';
 })
 export class ConversionHistoryComponent implements OnInit {
     conversions: any;
-    private serverAppUrl: string;
     private token: string;
 
     constructor(
@@ -18,14 +18,13 @@ export class ConversionHistoryComponent implements OnInit {
         private readonly httpClient: HttpClient,
         private readonly cookieService: CookieService,
     ){
-        this.serverAppUrl = 'http://localhost:3000'
         this.token = this.cookieService.get('token');
     }
 
     async ngOnInit(): Promise<void> {
         const userType = this.cookieService.get('userType');
         if(userType === 'ADMIN') {
-            await this.httpClient.get(`${this.serverAppUrl}/uf-case/bring/all`, { headers: { access_token: this.token } }).subscribe(
+            await this.httpClient.get(`${environment.serverAppUrl}/uf-case/bring/all`, { headers: { access_token: this.token } }).subscribe(
                 (response: any) => {
                     this.conversions = response;
                 }
@@ -45,7 +44,7 @@ export class ConversionHistoryComponent implements OnInit {
         const data = {
             convertions: this.conversions
         }
-        this.httpClient.post(`${this.serverAppUrl}/uf-case/download/file`, data, { headers, responseType: 'blob' as 'json' }).subscribe(
+        this.httpClient.post(`${environment.serverAppUrl}/uf-case/download/file`, data, { headers, responseType: 'blob' as 'json' }).subscribe(
             (response: any) =>{
                 let dataType = response.type;
                 let binaryData = [];
