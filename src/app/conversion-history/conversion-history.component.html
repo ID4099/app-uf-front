@@ -1,0 +1,29 @@
+<h3 class="text-center mt-5 mb-5">Tabla de Conversiones</h3>
+<br>
+<button *ngIf="isAdmin()" class="btn btn-block btn-primary mb-5" style="margin-right: 20px;" (click)="downloadFile()">Exportar a excel</button>
+<button class="btn btn-block btn-primary mb-5" routerLink="/">Ir al Coversor ::</button>
+
+<div *ngIf="isAdmin()" class="container">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Fecha de Actividad</th>
+            <th scope="col">Valor de UF</th>
+            <th scope="col">Cantidad UF</th>
+            <th scope="col">Fecha de Conversión</th>
+            <th scope="col">Monto de Conversión</th>
+            <th scope="col">Tipo de Usuario</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let convertion of conversions">
+                <td>{{convertion.activityDate}}</td>
+                <td>{{convertion.ufHowMany}}</td>
+                <td>{{convertion.ufValue}}</td>
+                <td>{{convertion.convertionDate}}</td>
+                <td>{{convertion.convertionAmount}}</td>
+                <td>{{convertion.userType}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,23 @@
+<div>
+    <form class="form-signin" #loginForm="ngForm"  (ngSubmit)="onSubmit(loginForm)">
+      <h3 class="text-center mb-5">User register</h3>
+      <div class="form-label-group">
+        <input class="form-control" type="text" id="name" name="name" ngModel placeholder="Name">
+      </div>
+
+      <div class="form-label-group">
+        <input class="form-control" type="text" id="lastname" name="lastname" ngModel placeholder="Last Name">
+      </div>
+
+      <div class="form-label-group">
+        <input class="form-control" type="text" id="user" name="user" ngModel placeholder="User">
+      </div>
+
+      <div class="form-label-group">
+        <input class="form-control" type="password" id="password" name="password" ngModel placeholder="Password">
+      </div>
+      <div class="form-label-group">
+        <button class="btn btn-primary btn-block" type="submit">Register</button>
+      </div>
+    </form>
+</div>

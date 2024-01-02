@@ -1,0 +1,11 @@
+.center-card-element {
+    width: 100%;
+    width: 400px;
+    padding-top: 50px;
+    margin: auto;
+  }
+
+.custom-size-card {
+    width: 450px; /* Ancho deseado */
+    height: 340px; /* Alto deseado */
+}

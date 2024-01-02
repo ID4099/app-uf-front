@@ -1,27 +1,18 @@
-# AppUfFront
+# APP-UF-FRONT
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.8.
+El presente repositorio consta del manejo de interfaz de conversion de UF a CLP.
 
-## Development server
+Está generado por: [Angular CLI](https://github.com/angular/angular-cli) version 17.0.8.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Requisitos
 
-## Code scaffolding
+- Node js v18.18.0 tls
+- npm ó yarn
+- Git
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Instalación y arranque
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Clona el repositorio con el comando "git clone https://github.com/ID4099/app-uf-back.git".
+- cd /my-repo.
+- Una vez clonado el repositorio ejecuta el comando "npm install" ó "yarn install".
+- Posteriormente ejecuta el comando "npm start:dev" para el arranque del servidor local en node js.

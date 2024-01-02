@@ -1,0 +1,71 @@
+<h3 class="text-center mt-5 mb-5">Convertir de UF a CLP</h3>
+<div class="container">
+    <div class="vertical-center">
+        <div class=" row justify-content-center">
+            <div class="col-md-5">
+              <div class="card bg-dark custom-size-card">
+                <div class="card-body mx-auto">
+                    <h4 class="text-white mb-4">Datos de conversión</h4>
+                    <form #convertForm="ngForm" (ngSubmit)="onSubmit(convertForm)">
+                        <p class="text-white">Fecha de actividad</p>
+                        <div class="col-12 mb-4">
+                            <div class="input-group">
+                                <input
+                                    class="form-control"
+                                    id="activityDate" name="activityDate" ngModel
+                                    placeholder="yyyy-mm-dd"
+                                    ngbDatepicker
+                                    required
+                                    #d="ngbDatepicker"
+                                />
+                                <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button">::</button>
+                            </div>
+                        </div>
+
+                        <p class="text-white">Cantidad de UF</p>
+                        <div class="col-12 mb-4">
+                            <input
+                                class="form-control"
+                                id="ufHowmany" name="ufHowmany" ngModel
+                                placeholder="number"
+                                type="number"
+                                min="1"
+                            />
+                        </div>
+                        
+                        <div class="form-label-group">
+                            <button class="btn btn-primary btn-block" type="submit">Convertir a CLP</button>
+                        </div>
+                    </form>
+
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="card bg-dark custom-size-card">
+                <div class="card-body">
+                    <h4 class="text-white text-center mb-4">Resultados de conversión</h4>
+
+                    <div class="row mb-4">
+                        <div class="col" style="margin-left: 35px;">
+                            <h6 class="text-white mb-1">Cantidad de UF:</h6>
+                            <h6 class="text-white mb-5">{{conversion.ufHowMany}}</h6>
+                            <h6 class="text-white mb-1">Fecha de conversión:</h6>
+                            <h6 class="text-white mb-5">{{conversion.activityDate}}</h6>
+                        </div>
+                        <div class="col text-end" style="margin-right: 25px;">
+                            <h6 class="text-white mb-1">Valor de UF:</h6>
+                            <h6 class="text-white mb-5">{{conversion.ufValue}} CLP</h6>
+                            <h6 class="text-white mb-1">Monto total:</h6>
+                            <h6 class="text-white mb-4">{{conversion.convertionAmount}} CLP</h6>
+                        </div>
+                    </div>
+                    <div class="">
+                        <button *ngIf="isAdmin()" class="btn btn-primary btn-block" style="margin-left: 40px;" type="button" routerLink="/conversion/history">Ver Historial</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>
