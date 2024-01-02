@@ -20,7 +20,7 @@ export class LoginService {
   }
 
   async signin(user: string, password: string): Promise<any>{
-    const credentials = { email: user, password }
+    const credentials = { user, password }
     await this.httpClient.post<any>(`${this.serverAppUrl}/user/signin`, credentials ).subscribe(
       (response)=>{
         this.cookie.set('token', response.access_token);
